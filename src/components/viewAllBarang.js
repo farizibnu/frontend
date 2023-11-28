@@ -71,7 +71,7 @@ const ViewAllBarang = () => {
           cancelText="No"
         >
           <Button type="danger" size="small">
-            Delete
+            Hapus
           </Button>
         </Popconfirm>
       ),

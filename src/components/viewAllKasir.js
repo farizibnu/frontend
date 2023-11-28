@@ -1,6 +1,6 @@
 // src/components/ViewAllKasir.js
 import React, { useState, useEffect } from 'react';
-import { Table } from 'antd';
+import { Table, Button, Popconfirm, message } from 'antd';
 import axios from 'axios';
 
 const ViewAllKasir = () => {
@@ -20,6 +20,18 @@ const ViewAllKasir = () => {
     fetchData();
   }, []);
 
+  const handleDelete = async (kode_kasir) => {
+    try {
+      await axios.delete(`http://localhost:3001/api/kasir/${kode_kasir}`);
+      // Refresh data setelah hapus
+      setKasirData(prevData => prevData.filter(kasir => kasir.kode_kasir !== kode_kasir));
+      message.success('Data kasir berhasil dihapus');
+    } catch (error) {
+      console.error('Error deleting data:', error.message);
+      message.error('Error deleting data kasir');
+    }
+  };
+
   const columns = [
     {
       title: 'ID Kasir',
@@ -35,6 +47,22 @@ const ViewAllKasir = () => {
       title: 'Nomor HP',
       dataIndex: 'hp',
       key: 'hp',
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (text, record) => (
+        <Popconfirm
+          title="Apakah Anda yakin ingin menghapus data ini?"
+          onConfirm={() => handleDelete(record.id_kasir)}
+          okText="Ya"
+          cancelText="Tidak"
+        >
+          <Button type="danger" size="small">
+            Hapus
+          </Button>
+        </Popconfirm>
+      ),
     },
   ];
 
