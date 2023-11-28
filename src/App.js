@@ -1,6 +1,6 @@
 // src/App.js
 import React from 'react';
-import Barang from './components/Barang';
+import Barang from './components/FormInputBarang';
 // import Kasir from './components/Kasir';
 // import Tenan from './components/Tenan';
 // import Transaksi from './components/Transaksi';
@@ -8,7 +8,7 @@ import Barang from './components/Barang';
 
 function App() {
   return (
-    <div>
+    <div className='card'>
       <Barang />
       {/* <Kasir />
       <Tenan />
