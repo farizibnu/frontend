@@ -11,7 +11,7 @@ const FormUpdateBarang = ({ kodeBarang, onUpdateSuccess }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/barang/${kodeBarang}`);
-        setInitialValues(response.data); // Set nilai awal formulir dengan data barang
+        setInitialValues(response.data); 
       } catch (error) {
         console.error('Error fetching data:', error.message);
       }
@@ -24,7 +24,7 @@ const FormUpdateBarang = ({ kodeBarang, onUpdateSuccess }) => {
     try {
       await axios.put(`http://localhost:3001/barang/${kodeBarang}`, values);
       console.log('Update success');
-      onUpdateSuccess(); // Panggil fungsi yang diberikan oleh parent setelah berhasil melakukan update
+      onUpdateSuccess(); 
     } catch (error) {
       console.error('Error updating data:', error.message);
     }

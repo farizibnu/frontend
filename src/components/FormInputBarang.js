@@ -9,11 +9,9 @@ const FormInputBarang = () => {
     try {
       const response = axios.post('http://localhost:3001/barang', values);
       console.log(response.data);
-      // Tambahkan logika atau tindakan lain setelah berhasil menyimpan data
       form.resetFields(); // Reset formulir setelah berhasil disubmit
     } catch (error) {
       console.error('Error:', error.message);
-      // Tambahkan logika atau tindakan lain untuk menangani kesalahan
     }
   };
 

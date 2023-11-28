@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from 'antd';
+import { Table, Button, Popconfirm, message } from 'antd';
 import axios from 'axios';
 
 const ViewAllBarang = () => {
@@ -18,6 +18,21 @@ const ViewAllBarang = () => {
 
     fetchData();
   }, []);
+
+  const handleDelete = async (kode_barang) => {
+    try {
+      // Kirim permintaan DELETE ke server
+      await axios.delete(`http://localhost:3001/barang/${kode_barang}`);
+      
+      // Perbarui data setelah penghapusan
+      setBarangData(prevData => prevData.filter(barang => barang.kode_barang !== kode_barang));
+      
+      message.success('Data barang berhasil dihapus');
+    } catch (error) {
+      console.error('Error deleting data:', error.message);
+      message.error('Gagal menghapus data barang');
+    }
+  };
 
   const columns = [
     {
@@ -44,6 +59,22 @@ const ViewAllBarang = () => {
       title: 'Stok',
       dataIndex: 'stok',
       key: 'stok',
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (text, record) => (
+        <Popconfirm
+          title="Apakah Anda yakin ingin menghapus?"
+          onConfirm={() => handleDelete(record.kode_barang)}
+          okText="Yes"
+          cancelText="No"
+        >
+          <Button type="danger" size="small">
+            Delete
+          </Button>
+        </Popconfirm>
+      ),
     },
   ];
 
