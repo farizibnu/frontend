@@ -3,6 +3,7 @@ import React from 'react';
 import Barang from './components/FormInputBarang';
 import FormUpdateBarang from './components/FormUpdateBarang';
 import ViewAllBarang from './components/viewAllBarang';
+import FormInputKasir from './components/FormInputKasir';
 // import Kasir from './components/Kasir';
 // import Tenan from './components/Tenan';
 // import Transaksi from './components/Transaksi';
@@ -14,6 +15,7 @@ function App() {
       <Barang />
       <FormUpdateBarang/>
       <ViewAllBarang/>
+      <FormInputKasir/>
       {/* <Kasir />
       <Tenan />
       <Transaksi />
