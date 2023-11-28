@@ -2,6 +2,7 @@
 import React from 'react';
 import Barang from './components/FormInputBarang';
 import FormUpdateBarang from './components/FormUpdateBarang';
+import ViewAllBarang from './components/viewAllBarang';
 // import Kasir from './components/Kasir';
 // import Tenan from './components/Tenan';
 // import Transaksi from './components/Transaksi';
@@ -12,6 +13,7 @@ function App() {
     <div className='card'>
       <Barang />
       <FormUpdateBarang/>
+      <ViewAllBarang/>
       {/* <Kasir />
       <Tenan />
       <Transaksi />

@@ -5,9 +5,9 @@ import axios from 'axios';
 const FormInputBarang = () => {
   const [form] = Form.useForm();
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = (values) => {
     try {
-      const response = await axios.post('http://localhost:3001/barang', values);
+      const response = axios.post('http://localhost:3001/barang', values);
       console.log(response.data);
       // Tambahkan logika atau tindakan lain setelah berhasil menyimpan data
       form.resetFields(); // Reset formulir setelah berhasil disubmit
@@ -27,10 +27,10 @@ const FormInputBarang = () => {
         <Form.Item label="Satuan" name="satuan" rules={[{ required: true, message: 'Satuan harus diisi' }]}>
           <Input />
         </Form.Item>
-        <Form.Item label="Harga Satuan" name="harga_satuan" rules={[{ required: true, type: 'number', message: 'Harga Satuan harus diisi' }]}>
+        <Form.Item label="Harga Satuan" name="harga_satuan" rules={[{ required: true,  message: 'Harga Satuan harus diisi' }]}>
           <Input type="number" />
         </Form.Item>
-        <Form.Item label="Stok" name="stok" rules={[{ required: true, type: 'number', message: 'Stok harus diisi' }]}>
+        <Form.Item label="Stok" name="stok" rules={[{ required: true,  message: 'Stok harus diisi' }]}>
           <Input type="number" />
         </Form.Item>
         <Form.Item>
