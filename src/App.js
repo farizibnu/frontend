@@ -5,6 +5,7 @@ import FormUpdateBarang from './components/FormUpdateBarang';
 import ViewAllBarang from './components/viewAllBarang';
 import FormInputKasir from './components/FormInputKasir';
 import FormUpdateKasir from './components/FormUpdateKasir';
+import ViewAllKasir from './components/viewAllKasir';
 // import Kasir from './components/Kasir';
 // import Tenan from './components/Tenan';
 // import Transaksi from './components/Transaksi';
@@ -18,6 +19,7 @@ function App() {
       <ViewAllBarang/>
       <FormInputKasir/>
       <FormUpdateKasir/>
+      <ViewAllKasir/>
       {/* <Kasir />
       <Tenan />
       <Transaksi />
