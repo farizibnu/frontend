@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import Barang from './components/Barang';
+// import Kasir from './components/Kasir';
+// import Tenan from './components/Tenan';
+// import Transaksi from './components/Transaksi';
+// import Struk from './components/Struk';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Barang />
+      {/* <Kasir />
+      <Tenan />
+      <Transaksi />
+      <Struk /> */}
     </div>
   );
 }
