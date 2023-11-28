@@ -35,8 +35,8 @@ const ViewAllKasir = () => {
   const columns = [
     {
       title: 'ID Kasir',
-      dataIndex: 'id_kasir',
-      key: 'id_kasir',
+      dataIndex: 'kode_kasir',
+      key: 'kode_kasir',
     },
     {
       title: 'Nama Kasir',
@@ -54,7 +54,7 @@ const ViewAllKasir = () => {
       render: (text, record) => (
         <Popconfirm
           title="Apakah Anda yakin ingin menghapus data ini?"
-          onConfirm={() => handleDelete(record.id_kasir)}
+          onConfirm={() => handleDelete(record.kode_kasir)}
           okText="Ya"
           cancelText="Tidak"
         >

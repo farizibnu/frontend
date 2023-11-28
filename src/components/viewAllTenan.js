@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from 'antd';
+import { Table, Popconfirm, message } from 'antd';
 import axios from 'axios';
 
 const ViewAllTenan = () => {
@@ -21,9 +21,9 @@ const ViewAllTenan = () => {
 
   const columns = [
     {
-      title: 'ID Tenan',
-      dataIndex: 'id_tenan',
-      key: 'id_tenan',
+      title: 'Kode tenan',
+      dataIndex: 'kode_tenan',
+      key: 'kode_tenan',
     },
     {
       title: 'Nama Tenan',
@@ -35,7 +35,32 @@ const ViewAllTenan = () => {
       dataIndex: 'hp_tenan',
       key: 'hp_tenan',
     },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (text, record) => (
+        <Popconfirm
+          title="Are you sure to delete this tenan?"
+          onConfirm={() => handleDelete(record.kode_tenan)}
+          okText="Yes"
+          cancelText="No"
+        >
+          <a href="#">Delete</a>
+        </Popconfirm>
+      ),
+    },
   ];
+
+  const handleDelete = async (kode_tenan) => {
+    try {
+      const response = await axios.delete(`http://localhost:3001/api/tenan/${kode_tenan}`);
+      setTenanData(prevData => prevData.filter(tenan => tenan.kode_tenan !== kode_tenan));
+      message.success(response.data);
+    } catch (error) {
+      console.error('Error deleting data:', error.message);
+      message.error('Failed to delete data');
+    }
+  };
 
   return (
     <div>
